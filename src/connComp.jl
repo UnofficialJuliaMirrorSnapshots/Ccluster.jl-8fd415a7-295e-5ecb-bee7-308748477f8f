@@ -111,3 +111,10 @@ function isEmpty(cc::connComp)
                         cc )
     return Bool(res)
 end
+
+function setAppPr(cc::Ref{connComp}, nAppPr::Int)
+    res = ccall( (:connCmp_set_appPr, :libccluster),
+                 Nothing, (Ptr{connComp}, Cint),
+                           cc,            nAppPr)
+    return
+end
